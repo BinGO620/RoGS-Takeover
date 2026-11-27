@@ -130,6 +130,16 @@ pipeline is not deterministic.
 - No rendering-quality claim is made. The rendering readings in the paper are
   single-seed, three-frame descriptive values.
 
+## What is and is not included
+
+Included: the full online SLAM pipeline as used for the reported runs, the
+contract implementation, the takeover experiment configurations, and the
+contract regression tests. Everything needed to compile the code and run the
+contract tests is here; `pytest tests/mapload/` passes without any dataset.
+
+Not included: the RGB-D sequences themselves, model weights, and the per-seed
+run directories produced during the experiments.
+
 ## Data and result artefacts
 
 This repository ships **code and configurations only**. The raw experiment

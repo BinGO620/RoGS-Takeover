@@ -1,0 +1,48 @@
+# an internal note 全长 demo 批 —— preup：crowd2 全长先验图（Amendment A1）
+# 与 probeB_make_crowd2.ply.yaml 的差异仅两处：①无帧数上限（全长 894 帧）
+# ②DynPort.enabled=false（纯静态先验图：动态区由语义门在插入侧排除，
+#   载入件不含动态层基元——契约范围 = 三本账 + 静态车道，lineage 重锚 UNTRACKED）
+# 产物 PLY 复制为 results/paper3_probe/contract_full_crowd2_prior.ply（固定名，sha256 见修正案收口）
+
+# an internal note 探针 B 前置件：crowd2 前 40 帧建图并落 PLY（B-X 的输入）
+# 口径 = 探针 A 的 A2（fit_iters=0，含 KNN 记账但不拟合 ⇒ 可复现），仪器三项锁定。
+inherit_from: "configs/rgbd/bonn/crowd2.yaml"
+method_from: "configs/experiments/combined_prune/method.yaml"
+method: "Combined-Prune"
+
+SWBA:
+  enabled: false
+LoopClosure:
+  enabled: false
+TransientMap:
+  enabled: false
+E2ObjectLayer:
+  enabled: false
+
+DynPort:
+  enabled: false
+  lam_d: 0.20
+  cap: 50000
+  lmax: 45
+  unproj_stride: 3
+  fit_iters: 0
+  lineage_base: 402653184
+  min_scale_m: 0.001
+  max_scale_m: 0.02
+  causal_log:
+    enabled: false
+    every_n: 1
+
+rng_sequence: "crowd2"
+
+Training:
+  single_thread: true
+  color_refinement_iterations: 0
+Dataset:
+  single_thread: true
+Rasterizer:
+  deterministic_backward: true
+
+Results:
+  save_dir: "results/paper3_probe/contract_full_crowd2_make"
+  save_per_frame_ape: true

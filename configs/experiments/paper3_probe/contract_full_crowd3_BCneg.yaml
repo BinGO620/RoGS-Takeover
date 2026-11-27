@@ -1,0 +1,54 @@
+# an internal note 全长 demo 批 —— 臂 BCneg（Amendment A1）
+# 全长真实管线：mapping_itr_num 恢复 method.yaml 默认、DeferredCommit 恢复默认
+#（B′ 的两个绕障 override 已移除——契约修复后不再需要）；其余与 probeBprime 臂一致
+# PLY 固定名 = preup（contract_full_crowd2_make.yaml 全长）产物复制，sha256 见修正案收口
+
+# an internal note 探针 B′ —— 臂 BCneg
+# B′-C− 对照：同一地图沿世界 +x 平移 0.30m
+# 判据本体 = the internal evidence file pre-registered protocol.md
+# （继承 an internal note §4.3/§4.4；本件只做一处实现性修订）
+#
+# ⚠ 口径声明（不得省略）：三臂**都不建图**（mapping_itr_num=0，初始化那一次除外，
+# 其 iter_per_kf 硬编码 300 见 slam_backend.py:2392）⇒ 唯一差异 = 第41-80帧的地图来源。
+inherit_from: "configs/rgbd/bonn/crowd3.yaml"
+method_from: "configs/experiments/combined_prune/method.yaml"
+method: "Combined-Prune"
+
+SWBA:
+  enabled: false
+LoopClosure:
+  enabled: false
+TransientMap:
+  enabled: false
+E2ObjectLayer:
+  enabled: false
+
+# an internal note：必须关掉延期提交（method.yaml 默认 enabled=true）。
+# 其 promote 路径会把新基元追加到载入地图之后（slam_backend.py:2366 处
+# validate_runtime_state），导致 unique_kfIDs/n_obs/lineage_id 与本流水线
+# 建图过程中的追加/剪枝语义脱钩 ⇒ 正是 an internal note §3.3 的阻塞。
+# 三臂同时关闭 ⇒ 单变量仍只差地图来源。
+DynPort:
+  enabled: false
+
+MapLoad:
+  enabled: true
+  ply_path: "results/paper3_probe/contract_full_crowd2_prior_shift030.ply"
+  translate_m: 0.30
+
+rng_sequence: "crowd3"
+
+Training:
+  single_thread: true
+  color_refinement_iterations: 0
+  # an internal note 探针 B′ 核心修订：载入/初始化后不再建图 ⇒ map(iters=0) 不进入
+  # for _ in range(0) 循环体 ⇒ 不触发 densify / add_densification_stats
+  # ⇒ 绕开 an internal note §3.3 的 state 基数守卫阻塞。
+Dataset:
+  single_thread: true
+Rasterizer:
+  deterministic_backward: true
+
+Results:
+  save_dir: "results/paper3_probe/probeBprime_crowd3_BCneg"
+  save_per_frame_ape: true
