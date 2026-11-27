@@ -130,6 +130,16 @@ pipeline is not deterministic.
 - No rendering-quality claim is made. The rendering readings in the paper are
   single-seed, three-frame descriptive values.
 
+## Repository documents
+
+| File | What it covers |
+|---|---|
+| `REPRODUCING.md` | step-by-step reproduction: dataset, the contract tests, the prior-map build, the three arms, the 0.6 m control, and runtimes |
+| `PROVENANCE.md` | what was exported from the source repository, what was deliberately withheld, and how the export was verified |
+| `CONTRIBUTING.md` | what changes are in scope while the manuscript is under review |
+| `LICENSE` | Inria / MPII non-commercial research licence, reproduced in full |
+| `CITATION.cff` | machine-readable citation metadata |
+
 ## What is and is not included
 
 Included: the full online SLAM pipeline as used for the reported runs, the
