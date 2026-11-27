@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accompanying manuscript."
+title: "RoGS-Takeover: Lifecycle State Consistency for Cross-Session Map Takeover in Online 3DGS SLAM"
+abstract: >-
+  Reference implementation of a per-primitive lifecycle state consistency
+  contract for online 3D Gaussian Splatting SLAM, and of the repair that lets a
+  map saved by an earlier session be loaded into a running session as
+  first-class primitives.
+type: software
+authors:
+  - family-names: Chen
+    given-names: Bin
+    orcid: "https://orcid.org/0009-0005-8933-2507"
+    affiliation: "School of Information Science and Engineering, University of Jinan, Jinan 250022, China"
+    email: chenb5@stu.ujn.edu.cn
+  - family-names: Su
+    given-names: Jie
+    affiliation: "School of Information Science and Engineering, University of Jinan, Jinan 250022, China"
+    email: ise_suj@ujn.edu.cn
+  - family-names: Zhang
+    given-names: Jing
+    affiliation: "Yantai Institute of Science and Technology, Yantai 265600, China"
+    email: ise_zhangjing@ujn.edu.cn
+contact:
+  - family-names: Su
+    given-names: Jie
+    email: ise_suj@ujn.edu.cn
+repository-code: "https://github.com/BinGO620/RoGS-Takeover"
+license: LicenseRef-Inria-MPII-NonCommercial
+keywords:
+  - Gaussian Splatting SLAM
+  - cross-session map takeover
+  - lifecycle ledger
+  - state consistency
+  - online SLAM
+references:
+  - type: article
+    title: "Lifecycle State Consistency for Cross-Session Map Takeover in Online 3DGS SLAM"
+    authors:
+      - family-names: Chen
+        given-names: Bin
+      - family-names: Su
+        given-names: Jie
+      - family-names: Zhang
+        given-names: Jing
+    journal: The Visual Computer
+    year: 2026
+    notes: "Under review"
+  - type: article
+    title: "3D Gaussian Splatting for Real-Time Radiance Field Rendering"
+    authors:
+      - family-names: Kerbl
+        given-names: Bernhard
+      - family-names: Kopanas
+        given-names: Georgios
+      - family-names: Leimkühler
+        given-names: Thomas
+      - family-names: Drettakis
+        given-names: George
+    journal: ACM Transactions on Graphics
+    volume: 42
+    issue: 4
+    start: 1
+    end: 14
+    year: 2023
+    doi: "10.1145/3592433"
+  - type: article
+    title: "Gaussian Splatting SLAM"
+    authors:
+      - family-names: Matsuki
+        given-names: Hidenobu
+      - family-names: Murai
+        given-names: Riku
+      - family-names: Kelly
+        given-names: Paul H. J.
+      - family-names: Davison
+        given-names: Andrew J.
+    journal: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    start: 18039
+    end: 18048
+    year: 2024
+    doi: "10.1109/CVPR52733.2024.01708"

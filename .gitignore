@@ -1,0 +1,33 @@
+# ---- data and weights (never commit) ----
+datasets/
+weights/
+data/
+*.ply
+*.npz
+*.npy
+
+# ---- experiment outputs ----
+results/
+output/
+runs/
+*.log
+*.consolelog
+*.done
+
+# ---- caches ----
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# ---- env / editor ----
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
